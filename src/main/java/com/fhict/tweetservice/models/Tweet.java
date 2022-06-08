@@ -20,5 +20,8 @@ public class Tweet {
     private int id;
     private Date timeSent;
     private String message;
-    private int userId;
+    private String userId;
+    private String username;
+    private String userPicture;
+    private String userSlug;
 }

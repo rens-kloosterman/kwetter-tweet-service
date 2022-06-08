@@ -28,13 +28,8 @@ public class TweetService {
 
     public ResponseEntity<List<Tweet>> getAll() {
         List<Tweet> tweets = tweetRepo.findAll();
-        if(tweets.size() == 0) {
-            return new ResponseEntity<>(tweets, new HttpHeaders(), HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity<>(tweets, new HttpHeaders(), HttpStatus.OK);
     }
-
-
 
     public ResponseEntity<List<Tweet>> getTweetByUsername(String username) {
         return null;
@@ -42,5 +37,9 @@ public class TweetService {
 
     public ResponseEntity<Tweet> getTweetById(int tweetId) {
         return null;
+    }
+
+    public List<Tweet> getTweetsByUserIds(List<String> userIds) {
+        return tweetRepo.findAllByUserIds(userIds);
     }
 }

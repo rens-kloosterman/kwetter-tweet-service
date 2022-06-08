@@ -17,11 +17,6 @@ public class TweetController {
         this.tweetService = tweetService;
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "test";
-    }
-
     @PostMapping()
     public ResponseEntity<Tweet> postTweet(@RequestBody Tweet tweet) {
         return tweetService.postTweet(tweet);
@@ -40,5 +35,10 @@ public class TweetController {
     @GetMapping("/{username}")
     public ResponseEntity<List<Tweet>> getTweetByUsername(@PathVariable String username) {
         return tweetService.getTweetByUsername(username);
+    }
+
+    @GetMapping("/gettweets/{userIds}")
+    public List<Tweet> getTweetsByUserIds(@PathVariable List<String> userIds) {
+        return tweetService.getTweetsByUserIds(userIds);
     }
 }
