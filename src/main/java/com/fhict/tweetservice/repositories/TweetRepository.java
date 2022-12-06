@@ -13,3 +13,5 @@ public interface TweetRepository extends JpaRepository<Tweet, Integer> {
     @Query("select t from Tweet t where t.userId in :userIds order by t.timeSent desc")
     List<Tweet> findAllByUserIds(@Param("userIds") List<String> userIds);
 }
+
+
